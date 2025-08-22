@@ -1,0 +1,78 @@
+{% extends '_layout.html' %}
+
+{% block content %}
+
+<h2>Add Contact</h2>
+
+<form
+  action="/contacts/add"
+  method="post"
+>
+  <fieldset>
+    <legend>Contact Values</legend>
+
+    <div>
+      <label for="email">Email</label>
+      <input
+        name="email"
+        id="email"
+        type="email"
+        placeholder="Email"
+        value="{{ contact.email or '' }}"
+      />
+      <span class="error">
+        {{ contact.errors['email'] }}
+      </span>
+    </div>
+
+    <div>
+      <label for="first_name">First Name</label>
+      <input
+        name="first_name"
+        id="first_name"
+        type="text"
+        placeholder="First Name"
+        value="{{ contact.first_name or '' }}"
+      />
+      <span class="error">
+        {{ contact.errors['first_name'] }}
+      </span>
+    </div>
+
+    <div>
+      <label for="last_name">Last Name</label>
+      <input
+        name="last_name"
+        id="last_name"
+        type="text"
+        placeholder="Last Name"
+        value="{{ contact.last_name or '' }}"
+      />
+      <span class="error">
+        {{ contact.errors['last_name'] }}
+      </span>
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input
+        name="phone"
+        id="phone"
+        type="text"
+        placeholder="Phone"
+        value="{{ contact.phone or '' }}"
+      />
+      <span class="error">
+        {{ contact.errors['phone'] }}
+      </span>
+    </div>
+
+    <button type="submit">Save</button>
+  </fieldset>
+</form>
+
+<div>
+  <a href="/contacts">Back</a>
+</div>
+
+{% endblock %}
