@@ -67,3 +67,10 @@ class Contact:
       if match_first or match_last or match_email or match_phone:
         result.append(c)
     return result
+
+  @classmethod
+  def find(cls, id_):
+    c = cls.db.get(id_)
+    if c is not None:
+      c.errors = {}
+    return c

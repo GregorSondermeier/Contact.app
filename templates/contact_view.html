@@ -1,0 +1,21 @@
+{% extends '_layout.html' %}
+
+{% block content %}
+
+<h2>{{ contact.first_name }} {{ contact.last_name }}</h2>
+
+<div>
+  <div>Phone: {{ contact.phone }}</div>
+  <div><a href="mailto:{{ contact.email }}" target="_blank">E-Mail: {{ contact.email }}</a></div>
+</div>
+
+<div class="margin-block-start list-of-links">
+  <div>
+    <a href="/contacts/{{contact.id}}/edit">Edit</a>
+  </div>
+  <div>
+    <a href="/contacts">Back</a>
+  </div>
+</div>
+
+{% endblock %}

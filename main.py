@@ -42,6 +42,15 @@ def contact_add_post():
   else:
     return render_template("contact_add.html", contact=contact)
 
+@app.route('/contacts/<contact_id>', methods=['GET'])
+def contact_view_redirect(contact_id=0):
+  return redirect(f'/contacts/{contact_id}/view', 301)
+
+@app.route('/contacts/<contact_id>/view', methods=['GET'])
+def contact_view(contact_id=0):
+  contact = Contact.find(contact_id)
+  return render_template("contact_view.html", contact=contact)
+
 if __name__ == "__main__":
   # For development convenience; in production use a WSGI server.
   app.run(debug=True)
